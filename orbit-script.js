@@ -276,8 +276,10 @@ const canvas = document.getElementById("gameCanvas");
 
 		document.addEventListener("mousedown", (e) => {
 			const rect = canvas.getBoundingClientRect();
-			const mouseX = e.clientX - rect.left;
-			const mouseY = e.clientY - rect.top;
+			const scaleX = canvas.width / rect.width;
+			const scaleY = canvas.height / rect.height;
+			const mouseX = (e.clientX - rect.left) * scaleX;
+			const mouseY = (e.clientY - rect.top) * scaleY;
 
 			if (menu) {
 				if (mouseX >= canvas.width/2 - 100 && mouseX <= canvas.width/2 + 100) {
