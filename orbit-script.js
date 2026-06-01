@@ -275,25 +275,29 @@ const canvas = document.getElementById("gameCanvas");
 		});
 
 		document.addEventListener("mousedown", (e) => {
+			const rect = canvas.getBoundingClientRect();
+			const mouseX = e.clientX - rect.left;
+			const mouseY = e.clientY - rect.top;
+
 			if (menu) {
-				if (e.clientX >= (window.innerWidth/2) - 100 && e.clientX <= (window.innerWidth/2) + 100) {
-					if (e.clientY >= 250 && e.clientY <= 300) {
+				if (mouseX >= canvas.width/2 - 100 && mouseX <= canvas.width/2 + 100) {
+					if (mouseY >= 200 && mouseY <= 250) {
 						menu = false;
 						difficulty = 0;
 						restart();
 					}
 				}
 
-				if (e.clientX >= (window.innerWidth/2) - 100 && e.clientX <= (window.innerWidth/2) + 100) {
-					if (e.clientY >= 350 && e.clientY <= 400) {
+				if (mouseX >= canvas.width/2 - 100 && mouseX <= canvas.width/2 + 100) {
+					if (mouseY >= 300 && mouseY <= 350) {
 						menu = false;
 						difficulty = 1;
 						restart();
 					}
 				}
 
-				if (e.clientX >= (window.innerWidth/2) - 100 && e.clientX <= (window.innerWidth/2) + 100) {
-					if (e.clientY >= 450 && e.clientY <= 500) {
+				if (mouseX >= canvas.width/2 - 100 && mouseX <= canvas.width/2 + 100) {
+					if (mouseY >= 400 && mouseY <= 450) {
 						menu = false;
 						difficulty = 2;
 						restart();
@@ -302,13 +306,13 @@ const canvas = document.getElementById("gameCanvas");
 			}
 
 			if (gameOver) {
-				if (e.clientX >= window.innerWidth/2 - 110 && e.clientX <= window.innerWidth/2 - 10) {
-					if (e.clientY >= 240 && e.clientY <= 270) {
+				if (mouseX >= canvas.width/2 - 110 && mouseX <= canvas.width/2 - 10) {
+					if (mouseY >= 190 && mouseY <= 220) {
 						restart();
 					}
 				}
-				else if (e.clientX >= window.innerWidth/2 + 10 && e.clientX <= window.innerWidth/2 + 110) {
-					if (e.clientY >= 240 && e.clientY <= 270) {
+				else if (mouseX >= canvas.width/2 + 10 && mouseX <= canvas.width/2 + 110) {
+					if (mouseY >= 190 && mouseY <= 220) {
 						menu = true;
 						draw();
 					}
